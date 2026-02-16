@@ -2,7 +2,7 @@
 
 A customized workflow system for creating and managing functional components in the automobile domain. This project demonstrates a flexible workflow engine that streamlines the creation of reusable components with validation, approval processes, and domain-specific configurations.
 
-## 🚗 Project Overview
+## Project Overview
 
 This system provides a structured approach to creating functional components for automobile applications, including:
 - **Engine Management Components** (Fuel injection, ignition systems)
@@ -10,7 +10,7 @@ This system provides a structured approach to creating functional components for
 - **Infotainment Components** (Navigation, media players, connectivity)
 - **Diagnostic Components** (OBD readers, sensor monitors)
 
-## 🏗️ Architecture
+## Architecture
 
 ### Frontend (Angular)
 - **Workflow Designer**: Visual interface for creating component workflows
@@ -24,7 +24,7 @@ This system provides a structured approach to creating functional components for
 - **Validation Service**: Business rule validation
 - **Repository Layer**: Persistence for workflows and components
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 workflow-component/
@@ -54,7 +54,7 @@ workflow-component/
     └── api-documentation/
 ```
 
-## 🚀 Features
+## Features
 
 ### 1. Workflow Definition
 - Define multi-step workflows for component creation
@@ -76,7 +76,7 @@ workflow-component/
 - Role-based access control
 - Audit trail for all actions
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 - Angular 17+
@@ -93,7 +93,7 @@ workflow-component/
 - Maven
 - Lombok
 
-## 📦 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Node.js 18+ and npm
@@ -121,7 +121,7 @@ ng serve
 
 The frontend will start on `http://localhost:4200`
 
-## 🎯 Usage Examples
+## Usage Examples
 
 ### Creating a Safety Component Workflow
 
@@ -147,7 +147,7 @@ export class AbsControllerComponent implements OnInit {
 }
 ```
 
-## 📚 API Documentation
+## API Documentation
 
 ### Workflow Endpoints
 
@@ -164,14 +164,14 @@ export class AbsControllerComponent implements OnInit {
 - `GET /api/components/{id}` - Get component details
 - `DELETE /api/components/{id}` - Delete component
 
-## 🔒 Security
+## Security
 
 - JWT-based authentication
 - Role-based access control (RBAC)
 - API rate limiting
 - Input validation and sanitization
 
-## 🧪 Testing
+## Testing
 
 ### Backend Tests
 ```bash
@@ -186,7 +186,7 @@ npm test
 npm run e2e
 ```
 
-## 📈 Future Enhancements
+## Future Enhancements
 
 - [ ] Visual workflow designer with drag-and-drop
 - [ ] Integration with CI/CD pipelines
@@ -194,17 +194,10 @@ npm run e2e
 - [ ] Real-time collaboration features
 - [ ] Advanced analytics dashboard
 
-## 👥 Contributing
-
-This project demonstrates a workflow system for automobile component creation. Feel free to fork and adapt for your needs.
-
-## 📄 License
+## License
 
 MIT License - See LICENSE file for details
 
-## 📧 Contact
-
-For questions or feedback about this workflow system implementation, please open an issue in the repository.
 
 ---
 
