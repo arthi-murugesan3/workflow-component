@@ -1,0 +1,140 @@
+<div class="workflow-creator-container">
+  <h1>Create New Workflow</h1>
+  <p class="subtitle">Define a workflow for creating automobile functional components</p>
+
+  <form [formGroup]="workflowForm" (ngSubmit)="onSubmit()" class="workflow-form">
+    
+    <!-- Basic Information -->
+    <div class="form-section">
+      <h2>Basic Information</h2>
+      
+      <div class="form-field">
+        <label for="name">Workflow Name *</label>
+        <input 
+          id="name" 
+          type="text" 
+          formControlName="name" 
+          placeholder="e.g., ABS Controller Workflow"
+          class="form-control">
+        <div class="error" *ngIf="workflowForm.get('name')?.invalid && workflowForm.get('name')?.touched">
+          Workflow name is required (min 3 characters)
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="description">Description *</label>
+        <textarea 
+          id="description" 
+          formControlName="description" 
+          rows="3"
+          placeholder="Describe the purpose of this workflow"
+          class="form-control"></textarea>
+        <div class="error" *ngIf="workflowForm.get('description')?.invalid && workflowForm.get('description')?.touched">
+          Description is required
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="createdBy">Created By *</label>
+        <input 
+          id="createdBy" 
+          type="text" 
+          formControlName="createdBy" 
+          placeholder="Your name or team"
+          class="form-control">
+      </div>
+    </div>
+
+    <!-- Component Configuration -->
+    <div class="form-section">
+      <h2>Component Configuration</h2>
+      
+      <div class="form-field">
+        <label for="category">Component Category *</label>
+        <select id="category" formControlName="category" class="form-control">
+          <option value="">Select a category</option>
+          <option *ngFor="let cat of categories" [value]="cat">
+            {{ getCategoryDisplayName(cat) }}
+          </option>
+        </select>
+        <div class="error" *ngIf="workflowForm.get('category')?.invalid && workflowForm.get('category')?.touched">
+          Category is required
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="componentName">Component Name * (PascalCase)</label>
+        <input 
+          id="componentName" 
+          type="text" 
+          formControlName="componentName" 
+          placeholder="e.g., AbsController"
+          class="form-control">
+        <div class="error" *ngIf="workflowForm.get('componentName')?.invalid && workflowForm.get('componentName')?.touched">
+          Component name must be in PascalCase (e.g., AbsController)
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="componentType">Component Type *</label>
+        <select id="componentType" formControlName="componentType" class="form-control">
+          <option value="component">Component</option>
+          <option value="controller">Controller</option>
+          <option value="monitor">Monitor</option>
+          <option value="service">Service</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Dependencies -->
+    <div class="form-section">
+      <h2>Dependencies</h2>
+      <p class="section-description">Dependencies are auto-populated based on category. You can add more if needed.</p>
+      
+      <div formArrayName="dependencies">
+        <div *ngFor="let dep of dependencies.controls; let i = index" class="array-item">
+          <input 
+            [formControlName]="i" 
+            type="text" 
+            placeholder="Dependency name"
+            class="form-control">
+          <button type="button" (click)="removeDependency(i)" class="btn-remove">Remove</button>
+        </div>
+      </div>
+      
+      <button type="button" (click)="addDependency()" class="btn-add">+ Add Dependency</button>
+    </div>
+
+    <!-- Validation Rules -->
+    <div class="form-section">
+      <h2>Validation Rules</h2>
+      <p class="section-description">Define validation rules for this workflow</p>
+      
+      <div formArrayName="validationRules">
+        <div *ngFor="let rule of validationRules.controls; let i = index" class="array-item">
+          <input 
+            [formControlName]="i" 
+            type="text" 
+            placeholder="Validation rule"
+            class="form-control">
+          <button type="button" (click)="removeValidationRule(i)" class="btn-remove">Remove</button>
+        </div>
+      </div>
+      
+      <button type="button" (click)="addValidationRule()" class="btn-add">+ Add Validation Rule</button>
+    </div>
+
+    <!-- Submit Message -->
+    <div *ngIf="submitMessage" class="submit-message" [class.error]="submitMessage.includes('Error')">
+      {{ submitMessage }}
+    </div>
+
+    <!-- Form Actions -->
+    <div class="form-actions">
+      <button type="submit" [disabled]="isSubmitting || workflowForm.invalid" class="btn-primary">
+        {{ isSubmitting ? 'Creating...' : 'Create Workflow' }}
+      </button>
+      <button type="button" (click)="onReset()" class="btn-secondary">Reset</button>
+    </div>
+  </form>
+</div>

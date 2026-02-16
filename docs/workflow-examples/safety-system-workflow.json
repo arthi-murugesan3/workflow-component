@@ -1,0 +1,60 @@
+{
+  "name": "ABS Controller Workflow",
+  "description": "Workflow for creating an Anti-lock Braking System (ABS) controller component",
+  "status": "DRAFT",
+  "category": "SAFETY_SYSTEM",
+  "componentName": "AbsController",
+  "componentType": "controller",
+  "dependencies": [
+    "SensorModule",
+    "BrakeSystem",
+    "AlertSystem",
+    "DataLogger"
+  ],
+  "validationRules": [
+    "Component must have sensor integration",
+    "Must implement emergency brake protocol",
+    "Real-time monitoring required",
+    "Fail-safe mechanism mandatory"
+  ],
+  "templateName": "SAFETY_SYSTEM",
+  "configuration": "{\"refreshRate\": 100, \"sensorCount\": 4, \"alertThreshold\": 0.8}",
+  "createdBy": "system_admin",
+  "steps": [
+    {
+      "stepOrder": 1,
+      "stepName": "Safety Validation",
+      "stepDescription": "Validate safety-critical requirements",
+      "stepType": "VALIDATION",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 2,
+      "stepName": "Dependency Verification",
+      "stepDescription": "Verify all safety dependencies are available",
+      "stepType": "DEPENDENCY_CHECK",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 3,
+      "stepName": "Component Generation",
+      "stepDescription": "Generate ABS controller component code",
+      "stepType": "CODE_GENERATION",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 4,
+      "stepName": "Safety Testing",
+      "stepDescription": "Run safety-critical tests",
+      "stepType": "TESTING",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 5,
+      "stepName": "Approval Gate",
+      "stepDescription": "Safety engineer approval required",
+      "stepType": "APPROVAL",
+      "status": "PENDING"
+    }
+  ]
+}

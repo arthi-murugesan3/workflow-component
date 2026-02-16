@@ -1,0 +1,60 @@
+{
+  "name": "Fuel Injection Monitor Workflow",
+  "description": "Workflow for creating a fuel injection monitoring component",
+  "status": "DRAFT",
+  "category": "ENGINE_MANAGEMENT",
+  "componentName": "FuelInjectionMonitor",
+  "componentType": "monitor",
+  "dependencies": [
+    "EngineDataService",
+    "SensorModule",
+    "DataLogger",
+    "AlertSystem"
+  ],
+  "validationRules": [
+    "Must monitor fuel pressure",
+    "Real-time data collection required",
+    "Integration with ECU mandatory",
+    "Performance metrics tracking"
+  ],
+  "templateName": "ENGINE_MANAGEMENT",
+  "configuration": "{\"samplingRate\": 50, \"pressureThreshold\": 45, \"temperatureLimit\": 120}",
+  "createdBy": "engine_team",
+  "steps": [
+    {
+      "stepOrder": 1,
+      "stepName": "Requirements Validation",
+      "stepDescription": "Validate engine management requirements",
+      "stepType": "VALIDATION",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 2,
+      "stepName": "ECU Integration Check",
+      "stepDescription": "Verify ECU interface compatibility",
+      "stepType": "DEPENDENCY_CHECK",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 3,
+      "stepName": "Monitor Component Generation",
+      "stepDescription": "Generate fuel injection monitor code",
+      "stepType": "CODE_GENERATION",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 4,
+      "stepName": "File Creation",
+      "stepDescription": "Create component files in project structure",
+      "stepType": "FILE_CREATION",
+      "status": "PENDING"
+    },
+    {
+      "stepOrder": 5,
+      "stepName": "Unit Testing",
+      "stepDescription": "Run unit tests for monitor component",
+      "stepType": "TESTING",
+      "status": "PENDING"
+    }
+  ]
+}
